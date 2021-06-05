@@ -1,0 +1,61 @@
+Assign3: Due 11:59PM November 6
+
+The Factorial of a number is the product of all numbers in the range 1 to the number.
+
+Write three implementations of a function to compute the Factorial of a number.
+
+Please start with one implementation at a time rather than rushing through all of them at the same time.
+
+The implementations are described below:
+
+1. An imperative iteration. 
+  Given a number, loop through using traditional for.
+
+2. A simple recursion.
+  
+3. A functional iteration. 
+	  Use functional internal iterators to perform the operation.
+
+Once you complete coding, please answer the following:
+
+1. What design principles did you use in this assignment? Discuss.
+
+	In this assignment, we used Single Responsibility Principle (SRP), with an interface that contains the different types of factorial functions to implement, and then test classes that handle and test the factorial functions separately. Each factorial function, imperative, recursive, and functional iterative, were put into their own methods. This is the first principle we made sure to keep in mind when starting our program.
+
+	After having written our functions, we realized that we would also have to adhere to Don’t Repeat Yourself (DRY). Before that, we had three different test classes that all contained the same assert statements. To remove the duplicate code, we created an abstract base test class that had a test method with the assert statements we would have to run with the three different functions, instead of having it rewritten with every function’s test class. At the beginning of the abstract test class, an abstract BigInteger function was declared, and in the assert statements from the test method, the abstract function is called for each statement. We made each individual test class implement the abstract base test class and its methods but had each test class override the abstract method by returning its own respective factorial function.
+
+	By making sure to keep DRY, we were also able to adhere to the Open/Closed Principle as a result. Rather than having each test class have its own set of assert statements, which would’ve broken both DRY and OCP, we had a base test class that contained the assert statements that all test classes would have to run. The abstract base test class was open to extension, but not modification. If the requirements were to change, we'd just go back into the factorial class with the functions and change them there.
+
+	The next principle we utilized was Keep it Simple, Stupid (KISS). After we wrote all of the code needed to make the program run, we went back and refactored to make sure that the language was as simple and readable as possible. For example, we changed how the for loop was written for the imperative function, and made the loop variable equal to one rather than the number we’re calculating the factorial of, which we had then set as the range value. Next, we refactored the recursive function, and had it return one single line, rather than using an if-else statement which we had used before. Aside from these, we also took a look around our code and changed variable names that seemed generic to ones that perfectly explain what the variable is meant to be representing. We then made more minor changes that we believed would enhance the readability of our program.
+
+	The last principle that was used is You Aren’t Gonna Need It (YAGNI). This principle was easy to follow since we used TDD for this assignment. We wrote our tests first, and then only the code needed to make those tests pass. By doing this, we ensure that no extra or unnecessary code is written. This was also made simple by the fact that our program would have only one main task to perform, which was calculating the factorial of the inputted numbers. We only had the three different types of factorial functions, imperative, recursive, and functional iterative, and then their respective test classes as well as the base class test. These are the minimum components needed for our assignment, without any unused extra functionality added, which we kept track of by consistently checking our code coverage.
+
+2. What design patterns did you use? List each one of them, discuss what this pattern is, and give example(s) of where specifically you used it in this assignment.
+
+	A design principle we used was the singleton design principle which is one of the creational patterns. The singleton design principle ensures a class has only one instance, and provides a global point of access to it. We had a factorial interface that handles the calculations using different algorithms. To access and test these methods, we created one base test class that had an abstract method that would be overridden by the three individual test classes. The function is the one instance that is called by all of the test classes, which contains the assert statements, for all subsequent calls. We were able to utilize the one instance by overriding it and returning the factorial function that is required for each test class.
+
+	Another pattern we used in this assignment is the Factory Method. Similar to singleton, factory method is used to return the same instance multiple times. For our assignment, our factory method is ‘functionToCalculateFactorial’ in our base test class that is called by its subclasses. This pattern is useful for reducing coupling and also duplicate code, since we are only creating function objects, which will be defined in their respective test classes.
+
+	The last design pattern we used with this project is the Composed Method Pattern, which states that we should divide long methods into smaller fragments that can be grouped together into their own separate methods. We did this multiple times throughout our assignment. The first being our factorial interface, where we had three different methods with their algorithms to calculate the factorial. Rather than returning all of the statements at once, each algorithm had its own function and return statement. This is further extended with our base test interface, where all of the assert statements can be called at once without having to rewrite them for each individual test class. In each test class, there was one test function that contained one line that calls the function from the base test class. In addition, when naming our functions, it was easy to come up with appropriate names since we designed each function to do one particular thing.
+
+
+
+3. Any surprises or things that you did not expect?
+
+	Before going into this assignment, we thought that we had a good understanding of what the duplication of code looked like. We wrote all of our factorial functions and assumed that it was adhering to DRY since each function performed the factorial using a different algorithm. However, when testing those functions, we found that we were breaking that principle by using the same assert statements for the three different test cases, which we hadn’t known until it was told to us. We later then had to do extensive research on how to fix this problem using Object Oriented Programming. We had initially thought that the fix would be easy, but later realized that removing the duplication would require an in-depth knowledge of inheritance. 
+
+	We didn’t know that keeping DRY in our test classes could be achieved by creating an abstract base test class, but found that it was the simplest and best solution. Before, we were trying to pass the functions as parameters, but found that it was better to make the function its own object. So we created a base test interface with method objects that were then implemented by each factorial’s test class. Once we figured that out, it was easy to finish the rest of the assignment by implementing the functional iterative method the same way we did with the functions we had already written.
+
+
+
+Total [100]: 98
+All tests passing [20]:
+Code coverage [10]:
+Test quality [20]:
+Imperative solution [5]:
+Recursive solution [10]:
+Functional solution [10]:
+Principles question [10]:
+Patterns question [10]: -2
+The details on Factory Method is sketchy, need to understand and expression how it is actually used.
+Surprises/learnings question [5]:

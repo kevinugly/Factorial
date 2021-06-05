@@ -1,0 +1,22 @@
+x canary test
+
+x factorialImperative for the number 0 returns 1.
+x factorialImperative for the number 1 returns 1.
+x factorialImperative for the number 2 returns 2.
+x factorialImperative for the number 5 returns 120.
+x factorialImperative for the number 10 returns 3628800.
+x factorialImperative for the number 50 returns 30414093201713378043612608166064768844377641568960512000000000000.
+
+x factorialRecursion for the number 0 returns 1.
+x factorialRecursion for the number 1 returns 1.
+x factorialRecursion for the number 2 returns 2.
+x factorialRecursion for the number 5 returns 120.
+x factorialRecursion for the number 10 returns 3628800.
+x factorialRecursion for the number 50 returns 30414093201713378043612608166064768844377641568960512000000000000.
+
+x factorialFunctional for the number 0 returns 1.
+x factorialFunctional for the number 1 returns 1.
+x factorialFunctional for the number 2 returns 2.
+x factorialFunctional for the number 5 returns 120.
+x factorialFunctional for the number 10 returns 3628800.
+x factorialFunctional for the number 50 returns 30414093201713378043612608166064768844377641568960512000000000000.
